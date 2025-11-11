@@ -13,13 +13,9 @@ function App() {
         <NavBar></NavBar>
       </GridItem>
       <Box hideBelow="lg">
-        <GridItem area={"aside"} bg="gold">
-          Aside
-        </GridItem>
+        <GridItem area={"aside"}>Aside</GridItem>
       </Box>
-      <GridItem area={"main"} bg="dodgerblue">
-        Main
-      </GridItem>
+      <GridItem area={"main"}>Main</GridItem>
     </Grid>
   );
 }
