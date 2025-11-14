@@ -13,9 +13,9 @@ const GameGrid = () => {
       {error && <p>{error}</p>}
       <SimpleGrid
         columns={{ sm: 1, md: 2, lg: 3, xl: 5 }}
-        gap={10}
+        gap={3}
         padding={6}
-        justifyContent="center"
+        boxSizing="border-box"
       >
         {isLoading &&
           skeletons.map((skeleton) => (
