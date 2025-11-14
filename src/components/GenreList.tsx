@@ -1,10 +1,38 @@
 import useGenres from "@/hooks/useGenres";
 import getCroppedImage from "@/services/getCroppedImages";
-import { HStack, List, Image, Text } from "@chakra-ui/react";
+import {
+  HStack,
+  List,
+  Image,
+  Text,
+  SkeletonCircle,
+  Stack,
+  Skeleton,
+} from "@chakra-ui/react";
 
 const GenreList = () => {
-  const { data } = useGenres();
+  const { data, isLoading, error } = useGenres();
   const popularGenres = data.slice(0, 13);
+  const skeletons = [...Array(13).keys()];
+
+  if (error) return null;
+
+  if (isLoading) {
+    return (
+      <List.Root paddingY={2} unstyled>
+        {skeletons.map(() => (
+          <List.Item paddingY={2}>
+            <HStack gap="2">
+              <SkeletonCircle size="32px" />
+              <Stack flex="1">
+                <Skeleton height="5" />
+              </Stack>
+            </HStack>
+          </List.Item>
+        ))}
+      </List.Root>
+    );
+  }
 
   return (
     <div>
