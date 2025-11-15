@@ -12,9 +12,10 @@ import {
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
 
-const GenreList = ({ onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   const popularGenres = data.slice(0, 16);
   const skeletons = [...Array(16).keys()];
@@ -50,6 +51,9 @@ const GenreList = ({ onSelectGenre }: Props) => {
                 src={getCroppedImage(genre.image_background)}
               />
               <Button
+                fontWeight={
+                  genre.id === selectedGenre?.id ? "bolder" : "normal"
+                }
                 onClick={() => onSelectGenre(genre)}
                 paddingX={0}
                 variant={"plain"}
