@@ -15,7 +15,7 @@ const PlatformSelector = ({ onSelectPlatform, selectedPlatform }: Props) => {
 
   return (
     <Menu.Root>
-      <Menu.Trigger asChild>
+      <Menu.Trigger marginX={6} asChild>
         {selectedPlatform ? (
           <Button variant="outline" size="sm">
             {selectedPlatform?.name} <BsChevronDown />
