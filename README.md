@@ -1,73 +1,92 @@
-# React + TypeScript + Vite
+# CliffX 🎮
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**CliffX** is a modern video game discovery web application that helps users find new games, view details, and explore vast gaming libraries.
 
-Currently, two official plugins are available:
+## 🚀 About the Project
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+CliffX serves as a hub for gamers to search for their next adventure. The application provides a clean, responsive interface to browse games by genre, platform, and rating.
 
-## React Compiler
+### Data Source: RAWG API
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This project is powered by the **[RAWG Video Games Database API](https://rawg.io/apidocs)**. We utilize RAWG because it offers the largest open video game database, providing rich metadata including:
 
-## Expanding the ESLint configuration
+- Game titles and descriptions
+- Release dates and Metacritic scores
+- High-quality background images and screenshots
+- Platform and genre categorization
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **Game Search:** Instant search functionality to find specific titles.
+- **Filtering:** Sort games by Genre (Action, RPG, Indie) and Platform (PC, PlayStation, Xbox).
+- **Responsive Design:** Optimized for desktop, tablet, and mobile viewing.
+- **Dark Mode:** (Optional: if your app supports it).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠️ Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **Frontend:** React (Vite) / TypeScript
+- **Styling:** Chakra UI / CSS Modules
+- **State Management:** React Hooks / Zustand
+- **Data Fetching:** Axios
+- **API:** RAWG.io API
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Follow these steps to set up the project locally.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- Node.js (v16 or higher)
+- npm or yarn
+
+### Installation
+
+1.  **Clone the repository**
+
+    ```bash
+    git clone https://github.com/yourusername/cliffx.git
+    cd cliffx
+    ```
+
+2.  **Install dependencies**
+
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
+
+3.  **Configure the API Key**
+    This project requires a RAWG API key to fetch data.
+
+    - Go to [https://rawg.io/apidocs](https://rawg.io/apidocs) and create a free account.
+    - Get your personalized API Key.
+    - Create a `.env` file in the root directory of the project.
+    - Add your key to the file:
+
+    <!-- end list -->
+
+    ```env
+    # If using Vite:
+    VITE_RAWG_API_KEY=your_actual_api_key_here
+
+    # If using Create React App:
+    REACT_APP_RAWG_API_KEY=your_actual_api_key_here
+    ```
+
+4.  **Run the development server**
+
+    ```bash
+    npm run dev
+    ```
+
+## 📂 Folder Structure
+
+```text
+/src
+  ├── components/    # Reusable UI components (GameCard, NavBar)
+  ├── hooks/         # Custom hooks (useGames, useGenres)
+  ├── services/      # API service configuration (api-client.ts)
+  ├── assets/        # Static images and logos
+  └── App.tsx        # Main application entry
 ```
