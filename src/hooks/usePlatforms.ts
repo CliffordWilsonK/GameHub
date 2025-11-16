@@ -1,8 +1,7 @@
-import useData from "./useData";
-import type { Platform } from "./useGames";
+import platforms from "@/data/platforms";
 
 
-const usePlatforms = () => useData<Platform>("/platforms/lists/parents")
+const usePlatforms = () => {return {data: platforms, error: null, isLoading: null}}
 
 
 
