@@ -12,19 +12,19 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card.Root overflow="hidden">
       <Image src={getCroppedImage(game.background_image)} alt={game.name} />
-      <Card.Body gap="2">
-        <Text textStyle="2xl" fontWeight="bold">
-          {game.name}
-        </Text>
-      </Card.Body>
-      <Card.Footer justifyContent="space-between">
+      <HStack justifyContent="space-between" margin={5}>
         <HStack>
           <PlatformIconList
             platforms={game.parent_platforms.map((p) => p.platform)}
           ></PlatformIconList>
         </HStack>
         <CriticScore score={game.metacritic}></CriticScore>
-      </Card.Footer>
+      </HStack>
+      <Card.Body gap="2" padding={"0 20px 20px 20px"}>
+        <Text textStyle="2xl" fontWeight="bold">
+          {game.name}
+        </Text>
+      </Card.Body>
     </Card.Root>
   );
 };
