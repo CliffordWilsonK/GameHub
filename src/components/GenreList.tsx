@@ -8,6 +8,7 @@ import {
   Stack,
   Skeleton,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 
 interface Props {
@@ -41,16 +42,21 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
 
   return (
     <div>
+      <Heading size={"2xl"} fontWeight={"bold"}>
+        Genres
+      </Heading>
       <List.Root paddingY={2} unstyled>
         {popularGenres.map((genre) => (
           <List.Item key={genre.id}>
             <HStack>
               <Image
+                objectFit={"cover"}
                 boxSize="32px"
                 borderRadius={8}
                 src={getCroppedImage(genre.image_background)}
               />
               <Button
+                whiteSpace={"normal"}
                 fontWeight={
                   genre.id === selectedGenre?.id ? "bolder" : "normal"
                 }
