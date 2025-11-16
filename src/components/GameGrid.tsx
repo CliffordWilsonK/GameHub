@@ -30,7 +30,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       </SimpleGrid>
     );
   }
-  if (error || !data) return <Text>Something went wrong.</Text>;
+  if (error || !data) return <Text padding={6}>Something went wrong.</Text>;
 
   return (
     <SimpleGrid
