@@ -15,9 +15,10 @@ const ColorModeToggle = () => {
         <Switch.Control>
           <Switch.Thumb />
         </Switch.Control>
-        <Switch.Label />
+        <Switch.Label asChild>
+          <Text whiteSpace={"nowrap"}>Dark Mode</Text>
+        </Switch.Label>
       </Switch.Root>
-      <Text>Dark Mode</Text>
     </HStack>
   );
 };

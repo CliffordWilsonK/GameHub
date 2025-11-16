@@ -3,8 +3,8 @@ import { LuSearch } from "react-icons/lu";
 
 const SearchInput = () => {
   return (
-    <InputGroup borderRadius={20} startElement={<LuSearch />}>
-      <Input placeholder="Search games..." />
+    <InputGroup startElement={<LuSearch />}>
+      <Input borderRadius={20} placeholder="Search games..." />
     </InputGroup>
   );
 };
