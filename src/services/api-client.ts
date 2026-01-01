@@ -6,3 +6,9 @@ export default axios.create({
     key: import.meta.env.VITE_RAWG_API,
   },
 });
+
+export interface fetchResponse<T> {
+  count: number;
+  results: T[];
+}
+

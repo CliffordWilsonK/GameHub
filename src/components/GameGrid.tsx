@@ -39,7 +39,7 @@ const GameGrid = ({ gameQuery }: Props) => {
       padding={6}
       boxSizing="border-box"
     >
-      {data.map((game) => (
+      {data.results.map((game) => (
         <GameCardContainer key={game.id}>
           <GameCard game={game} />
         </GameCardContainer>
