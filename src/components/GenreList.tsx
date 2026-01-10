@@ -18,7 +18,7 @@ interface Props {
 
 const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
-  const popularGenres = data?.results.slice(0, 16);
+  const popularGenres = data?.results;
   const skeletons = [...Array(16).keys()];
 
   if (error) return null;
