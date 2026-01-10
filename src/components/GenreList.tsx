@@ -13,10 +13,10 @@ import {
 
 interface Props {
   onSelectGenre: (genre: Genre) => void;
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, isLoading, error } = useGenres();
   const popularGenres = data?.results.slice(0, 16);
   const skeletons = [...Array(16).keys()];
@@ -58,7 +58,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
               <Button
                 whiteSpace={"normal"}
                 fontWeight={
-                  genre.id === selectedGenre?.id ? "bolder" : "normal"
+                  genre.id === selectedGenreId ? "bolder" : "normal"
                 }
                 onClick={() => onSelectGenre(genre)}
                 paddingX={0}
