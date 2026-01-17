@@ -1,16 +1,17 @@
-import usePlatforms, {type  Platform } from "@/hooks/usePlatforms";
+import usePlatforms from "@/hooks/usePlatforms";
+import { type Platform } from "@/entities/Platform";
 import useGameQueryStore from "@/store";
 import { Button, Menu, Portal } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
 
-
-
 const PlatformSelector = () => {
-  const selectedPlatformId = useGameQueryStore(s => s.gameQuery.platformId)
-  const setSelectedPlatformId = useGameQueryStore(s => s.setPlatformId)
+  const selectedPlatformId = useGameQueryStore((s) => s.gameQuery.platformId);
+  const setSelectedPlatformId = useGameQueryStore((s) => s.setPlatformId);
   const { data, error } = usePlatforms();
 
-  const selectedPlatform = data?.results.find(p => p.id === selectedPlatformId)
+  const selectedPlatform = data?.results.find(
+    (p) => p.id === selectedPlatformId,
+  );
 
   if (error) return null;
 
